@@ -27,6 +27,29 @@ footballPoints(1, 2);
 footballPoints(0, 0);
 
 // Requisito 3 - Crie uma função que adiciona músicas em uma playlist
+let playlist = [];
+function addMusics(artistName, musicName, musicTime) {
+  if (playlist.length === 0) {
+    playlist.unshift({
+      artist: artistName,
+      music: musicName,
+      musicTime,
+    });
+  } else {
+    playlist.push({
+      artist: artistName,
+      music: musicName,
+      musicTime,
+    });
+
+    return playlist;
+  }
+}
+
+addMusics('Survivor', 'Eye of the Tiger', 2.62);
+addMusics('Roy Orbison', 'Pretty Woman', 2.73);
+addMusics('Lady Gaga', 'Just Dance', 2.66);
+console.log(playlist);
 
 // =================================================
 // PARTE 2
