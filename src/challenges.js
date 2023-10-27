@@ -15,6 +15,16 @@ function splitSentence(phrase) {
 splitSentence('go Trybe');
 
 // Requisito 2 - Crie uma função que calcula a quantidade de pontos em um campeonato de futebol
+function footballPoints(wins, ties) {
+  let pointsWins = wins * 3;
+  let pointTies = ties;
+  let totalPoints = pointsWins + pointTies;
+  return totalPoints;
+}
+
+footballPoints(14, 8);
+footballPoints(1, 2);
+footballPoints(0, 0);
 
 // Requisito 3 - Crie uma função que adiciona músicas em uma playlist
 
@@ -42,15 +52,15 @@ splitSentence('go Trybe');
 
 // Não modifique as linhas abaixo
 module.exports = {
-  splitSentence: typeof splitSentence === 'function' ? splitSentence : (() => {}),
-  footballPoints: typeof footballPoints === 'function' ? footballPoints : (() => {}),
-  addMusics: typeof addMusics === 'function' ? addMusics : (() => {}),
+  splitSentence: typeof splitSentence === 'function' ? splitSentence : (() => { }),
+  footballPoints: typeof footballPoints === 'function' ? footballPoints : (() => { }),
+  addMusics: typeof addMusics === 'function' ? addMusics : (() => { }),
   playlist: typeof playlist === 'undefined' ? [] : playlist,
-  moreExpensive: typeof moreExpensive === 'function' ? moreExpensive : (() => {}),
-  checkItem: typeof checkItem === 'function' ? checkItem : (() => {}),
-  addNewItem: typeof addNewItem === 'function' ? addNewItem : (() => {}),
-  counterGender: typeof counterGender === 'function' ? counterGender : (() => {}),
-  filterState: typeof filterState === 'function' ? filterState : (() => {}),
-  changePicture: typeof changePicture === 'function' ? changePicture : (() => {}),
-  generateReport: typeof generateReport === 'function' ? generateReport : (() => {}),
+  moreExpensive: typeof moreExpensive === 'function' ? moreExpensive : (() => { }),
+  checkItem: typeof checkItem === 'function' ? checkItem : (() => { }),
+  addNewItem: typeof addNewItem === 'function' ? addNewItem : (() => { }),
+  counterGender: typeof counterGender === 'function' ? counterGender : (() => { }),
+  filterState: typeof filterState === 'function' ? filterState : (() => { }),
+  changePicture: typeof changePicture === 'function' ? changePicture : (() => { }),
+  generateReport: typeof generateReport === 'function' ? generateReport : (() => { }),
 };
