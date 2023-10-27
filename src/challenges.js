@@ -41,15 +41,12 @@ function addMusics(artistName, musicName, musicTime) {
       music: musicName,
       musicTime,
     });
-
-    return playlist;
   }
+  return playlist;
 }
-
-addMusics('Survivor', 'Eye of the Tiger', 2.62);
+/* addMusics('Survivor', 'Eye of the Tiger', 2.62);
 addMusics('Roy Orbison', 'Pretty Woman', 2.73);
-addMusics('Lady Gaga', 'Just Dance', 2.66);
-console.log(playlist);
+addMusics('Lady Gaga', 'Just Dance', 2.66); */
 
 // =================================================
 // PARTE 2
@@ -58,7 +55,17 @@ console.log(playlist);
 // Requisito 4 - Crie uma função que retorna o produto mais caro de acordo com uma categoria
 
 // Requisito 5 - Crie uma função que verifica se um determinado item já existe
-
+let nome = [];
+function checkItem(data, category, item) {
+  for (let index = 0; index < data[category].length; index += 1) {
+    nome = data[category][index];
+    if (nome.name === item) {
+      return true;
+    }
+    return false;
+  }
+}
+checkItem(menu, 'sandwiches', 'Big Tasty');
 // Requisito 6 - Crie uma função que adiciona um novo item caso ele ainda não exista
 
 // Requisito 7 - Crie uma função que conta a quantidade de pessoas por gênero
