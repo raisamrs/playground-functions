@@ -7,6 +7,13 @@ const guestsDatabase = require('./data.json');
 
 // Requisito 1 - Crie uma função que divida uma frase
 
+function splitSentence(phrase) {
+  let arraywords = phrase.split(' ');
+  return arraywords;
+}
+
+splitSentence('go Trybe');
+
 // Requisito 2 - Crie uma função que calcula a quantidade de pontos em um campeonato de futebol
 
 // Requisito 3 - Crie uma função que adiciona músicas em uma playlist
