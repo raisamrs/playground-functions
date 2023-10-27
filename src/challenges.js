@@ -53,22 +53,67 @@ addMusics('Lady Gaga', 'Just Dance', 2.66); */
 // =================================================
 
 // Requisito 4 - Crie uma função que retorna o produto mais caro de acordo com uma categoria
+const moreExpensive = (data, category) => {
+  let nomeMaisCaro = '';
+  let maisCaro = 0;
+
+  for (let index = 0; index < data[category].length; index += 1) {
+    const item = data[category][index];
+
+    if (item.price > maisCaro) {
+      nomeMaisCaro = item.name;
+      maisCaro = item.price;
+    }
+  }
+
+  return `O produto mais caro é: ${nomeMaisCaro}, que custa: R$${maisCaro.toFixed(2)}.`;
+};
 
 // Requisito 5 - Crie uma função que verifica se um determinado item já existe
-let nome = [];
-function checkItem(data, category, item) {
+const checkItem = (data, category, item) => {
   for (let index = 0; index < data[category].length; index += 1) {
-    nome = data[category][index];
-    if (nome.name === item) {
+    if (item === data[category][index].name) {
       return true;
     }
-    return false;
   }
-}
+  return false;
+};
 checkItem(menu, 'sandwiches', 'Big Tasty');
 // Requisito 6 - Crie uma função que adiciona um novo item caso ele ainda não exista
+const addNewItem = (data, category, item, price, ingredients, calories) => {
+  if (checkItem(data, category, item)) {
+    return `O produto: "${item}" já existe!`;
+  }
+
+  const novoItem = {
+    name: item,
+    price,
+    ingredients,
+    calories,
+  };
+
+  data[category].push(novoItem);
+  return novoItem;
+};
 
 // Requisito 7 - Crie uma função que conta a quantidade de pessoas por gênero
+const counterGender = (data) => {
+  let male = 0;
+  let female = 0;
+
+  for (let index = 0; index < data.guests.length; index += 1) {
+    if (data.guests[index].gender === 'male') {
+      male += 1;
+    } else if (data.guests[index].gender === 'female') {
+      female += 1;
+    }
+  }
+
+  return {
+    male,
+    female,
+  };
+};
 
 // =================================================
 // PARTE 3
