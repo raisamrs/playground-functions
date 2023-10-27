@@ -80,7 +80,7 @@ const checkItem = (data, category, item) => {
 };
 checkItem(menu, 'sandwiches', 'Big Tasty');
 // Requisito 6 - Crie uma função que adiciona um novo item caso ele ainda não exista
-const addNewItem = (data, category, item, price, ingredients, calories) => {
+addNewItem = (data, category, item, price, ingredients, calories) => {
   if (checkItem(data, category, item)) {
     return `O produto: "${item}" já existe!`;
   }
@@ -120,6 +120,22 @@ const counterGender = (data) => {
 // =================================================
 
 // Requisito 8 - Crie uma função que retorna os elementos de um determinado estado
+
+function filterState(data, state) {
+  let index;
+  let stateElements = [];
+  let countArray = 0;
+  for (index = 0; index < data.guests.length; index += 1) {
+    let stateArray = data.guests[index].address.state;
+    if (stateArray === state) {
+      stateElements[countArray] = data.guests[index];
+      countArray += 1;
+    }
+  } return stateElements;
+  /* return console.log(stateElements); */
+}
+
+filterState(guestsDatabase, 'Bahia');
 
 // Requisito 9 - Crie uma função que altera a propriedade `picture`
 
