@@ -142,9 +142,29 @@ function changePicture(data, link) {
   }
   return data.guests;
 }
-/* console.log(guestsDatabase.guests[0].picture); */
 // Requisito 10 - Crie um função que gera um relatório
+function generateReport(data) {
+  const report = {
+    totalGuests: data.guests.length,
+    totalGender: { male: 0, female: 0 },
+    avgAge: 0,
+    countries: Array.from(new Set(data.guests.map((guest) => guest.country))).sort(),
+  };
 
+  const totalAvgAge = data.guests.reduce((total, guest) => total + guest.age, 0);
+
+  data.guests.forEach((guest) => {
+    if (guest.gender === 'male') {
+      report.totalGender.male += 1;
+    } else {
+      report.totalGender.female += 1;
+    }
+  });
+
+  report.avgAge = Number((totalAvgAge / report.totalGuests).toFixed(2));
+
+  return report;
+}
 // Não modifique as linhas abaixo
 module.exports = {
   splitSentence: typeof splitSentence === 'function' ? splitSentence : (() => { }),
