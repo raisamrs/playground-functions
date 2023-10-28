@@ -132,13 +132,17 @@ function filterState(data, state) {
       countArray += 1;
     }
   } return stateElements;
-  /* return console.log(stateElements); */
 }
 
-filterState(guestsDatabase, 'Bahia');
-
 // Requisito 9 - Crie uma função que altera a propriedade `picture`
-
+function changePicture(data, link) {
+  for (let index = 0; index < data.guests.length; index += 1) {
+    data.guests[index].picture = link;
+    console.log(data.guests[index]);
+  }
+  return data.guests;
+}
+/* console.log(guestsDatabase.guests[0].picture); */
 // Requisito 10 - Crie um função que gera um relatório
 
 // Não modifique as linhas abaixo
